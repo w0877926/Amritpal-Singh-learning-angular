@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('Amritpal-Singh-learning-angular');
-  //Lets make a variable
+  //Let's make a variable
   name : string = "Amrit"
   age : string = "20"
   studysat : string = "StClair College"
