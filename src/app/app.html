@@ -1,4 +1,10 @@
-<!-- app.html-->
-<h1>Hi my name is: {{name}}</h1>
-<h2>My age is: {{age}}</h2>
-<h2>I study at: {{studysat}}</h2>
+<div id="sentinel-proof">
+  <h1>{{ title }}</h1>
+
+  <div *ngFor="let car of muscleCars">
+    <p>{{ car.year }} {{ car.make }} {{ car.model }}</p>
+    <p>Horsepower: {{ car.horsepower }}</p>
+    <p>Top Speed: {{ car.topSpeed }}</p>
+    <p *ngIf="car.isClassic">Classic Muscle Car</p>
+  </div>
+</div>

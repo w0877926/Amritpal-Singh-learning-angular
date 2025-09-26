@@ -1,0 +1,33 @@
+#sentinel-proof {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #f4f4f4;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+div {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+p {
+  margin: 4px 0;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  #sentinel-proof {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+}
