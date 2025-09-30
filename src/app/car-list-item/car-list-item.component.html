@@ -1,4 +1,4 @@
-<div class="car-item">
+<div class="car-item" [ngClass]="{ even: isEven, odd: !isEven }">
   <h2>{{ car?.year }} {{ car?.make }} {{ car?.model }}</h2>
   <p>Horsepower: {{ car?.horsepower }}</p>
   <p>Top Speed: {{ car?.topSpeed }} mph</p>

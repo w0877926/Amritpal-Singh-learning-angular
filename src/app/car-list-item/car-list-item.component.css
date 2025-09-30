@@ -4,3 +4,11 @@
   margin-bottom: 10px;
   border-radius: 6px;
 }
+
+.even {
+  background-color: #ffe4e1;
+}
+
+.odd {
+  background-color: #e0ffff;
+}

@@ -8,7 +8,7 @@ import { MuscleCar } from '../models/muscle-car';
   standalone: true,
   imports: [CommonModule, CarListItemComponent],
   templateUrl: './car-list.component.html',
-  styleUrls: ['./car-list.component.scss']
+  styleUrls: ['./car-list.component.css']
 })
 export class CarListComponent {
 
