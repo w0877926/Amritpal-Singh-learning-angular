@@ -1,1 +1,6 @@
-<p>car-list-item works!</p>
+<div class="car-item">
+  <h2>{{ car?.year }} {{ car?.make }} {{ car?.model }}</h2>
+  <p>Horsepower: {{ car?.horsepower }}</p>
+  <p>Top Speed: {{ car?.topSpeed }} mph</p>
+  <p *ngIf="car?.isClassic">Classic Muscle Car</p>
+</div>
