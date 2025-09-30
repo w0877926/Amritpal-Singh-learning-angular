@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { MuscleCar } from './models/muscle-car';
 import {NgFor, NgIf} from '@angular/common';
+import {CarListComponent} from './car-list/car-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, CarListComponent, CarListComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })

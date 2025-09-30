@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MuscleCar } from '../models/muscle-car';
 
 @Component({
   selector: 'app-car-list-item',
-  imports: [],
+  standalone: true,
   templateUrl: './car-list-item.component.html',
-  styleUrl: './car-list-item.component.css'
+  styleUrls: ['./car-list-item.component.scss']
 })
 export class CarListItemComponent {
-
+  @Input() car?: MuscleCar;
 }
