@@ -1,15 +1,13 @@
 <div id="sentinel-proof">
   <h1>{{ title }}</h1>
 
-  <app-car-list></app-car-list>
+  <section *ngIf="featured">
+    <h2>Featured Car</h2>
+    <app-car-list-item [car]="featured"></app-car-list-item>
+  </section>
 
-  <div *ngFor="let car of muscleCars">
-    <p>{{ car.year }} {{ car.make }} {{ car.model }}</p>
-    <p>Horsepower: {{ car.horsepower }}</p>
-    <p>Top Speed: {{ car.topSpeed }}</p>
-    <p *ngIf="car.isClassic">Classic Muscle Car</p>
-  </div>
-
-
-
+  <section>
+    <h2>All Cars</h2>
+    <app-car-list></app-car-list>
+  </section>
 </div>

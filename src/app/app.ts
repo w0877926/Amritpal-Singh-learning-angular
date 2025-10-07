@@ -1,28 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MuscleCar } from './models/muscle-car';
-import {NgFor, NgIf} from '@angular/common';
-import {CarListComponent} from './car-list/car-list.component';
+import { NgIf } from '@angular/common';
+import { CarListComponent } from './car-list/car-list.component';
+import { CarListItemComponent } from './car-list-item/car-list-item.component';
+import { MuscleCarService } from './services/muscle-car.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgFor, NgIf, CarListComponent, CarListComponent],
+  imports: [NgIf, CarListComponent, CarListItemComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
-export class App {
+export class App implements OnInit {
   title: string = 'Muscle Car Showcase';
+  featured?: MuscleCar;
 
-  muscleCars: MuscleCar[] = [
-    { make: 'Ford', model: 'Mustang Boss 429', year: 1969, horsepower: 375, topSpeed: 118, isClassic: true },
-    { make: 'Chevrolet', model: 'Camaro Z/28', year: 1969, horsepower: 290, topSpeed: 120, isClassic: true },
-    { make: 'Dodge', model: 'Charger R/T', year: 1970, horsepower: 375, topSpeed: 127, isClassic: true },
-    { make: 'Plymouth', model: 'Barracuda HEMI', year: 1970, horsepower: 425, topSpeed: 117, isClassic: true },
-    { make: 'Pontiac', model: 'GTO Judge', year: 1970, horsepower: 370, topSpeed: 115, isClassic: true },
-    { make: 'Chevrolet', model: 'Chevelle SS 454', year: 1970, horsepower: 450, topSpeed: 125, isClassic: true },
-    { make: 'Dodge', model: 'Challenger R/T', year: 1970, horsepower: 375, topSpeed: 124, isClassic: true },
-    { make: 'AMC', model: 'AMX 390', year: 1969, horsepower: 315, topSpeed: 115 },
-    { make: 'Buick', model: 'GSX Stage 1', year: 1970, horsepower: 360, topSpeed: 123 },
-    { make: 'Oldsmobile', model: '442 W-30', year: 1970, horsepower: 370, topSpeed: 121 },
-  ];
+  constructor(private carService: MuscleCarService) {}
+
+  ngOnInit(): void {
+    this.carService.getCarById(1).subscribe(car => this.featured = car);
+  }
 }
