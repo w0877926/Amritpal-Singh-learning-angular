@@ -1,4 +1,5 @@
 export interface MuscleCar {
+  id: number;
   make: string;
   model: string;
   year: number;
@@ -6,4 +7,3 @@ export interface MuscleCar {
   topSpeed: number;
   isClassic?: boolean;
 }
-
