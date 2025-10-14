@@ -1,6 +1,13 @@
 <div id="muscle-car">
   <h1>{{ title }}</h1>
 
+  <nav class="nav-bar">
+    <a routerLink="/" routerLinkActive="active-link">Home</a>
+    <a routerLink="/modify" routerLinkActive="active-link">Modify List</a>
+  </nav>
+
+  <router-outlet></router-outlet>
+
   <section *ngIf="featured">
     <h2>Featured Car</h2>
     <app-car-list-item [car]="featured"></app-car-list-item>
@@ -11,3 +18,4 @@
     <app-car-list></app-car-list>
   </section>
 </div>
+

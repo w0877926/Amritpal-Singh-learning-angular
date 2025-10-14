@@ -1,4 +1,5 @@
 <div class="car-item" [ngClass]="{ even: isEven, odd: !isEven }">
+  <img *ngIf="car?.image" [src]="car.image" [alt]="car?.make + ' ' + car?.model" class="car-img">
   <h2>{{ car?.year }} {{ car?.make }} {{ car?.model }}</h2>
   <p>Horsepower: {{ car?.horsepower }}</p>
   <p>Top Speed: {{ car?.topSpeed }} mph</p>
