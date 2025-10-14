@@ -1,4 +1,4 @@
-#sentinel-proof {
+#muscle-car {
   max-width: 800px;
   margin: 20px auto;
   padding: 15px;
@@ -23,7 +23,7 @@ p {
 
 /* Responsive design */
 @media (max-width: 600px) {
-  #sentinel-proof {
+  #muscle-car {
     padding: 10px;
   }
 
