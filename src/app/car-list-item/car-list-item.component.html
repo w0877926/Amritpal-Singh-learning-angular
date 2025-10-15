@@ -1,7 +1,15 @@
 <div class="car-item" [ngClass]="{ even: isEven, odd: !isEven }">
-  <img *ngIf="car?.image" [src]="car.image" [alt]="car?.make + ' ' + car?.model" class="car-img">
-  <h2>{{ car?.year }} {{ car?.make }} {{ car?.model }}</h2>
-  <p>Horsepower: {{ car?.horsepower }}</p>
-  <p>Top Speed: {{ car?.topSpeed }} mph</p>
-  <p *ngIf="car?.isClassic">Classic Muscle Car</p>
+  <img
+    *ngIf="car?.image"
+    ngSrc="{{ car!.image }}"
+    width="300"
+    height="200"
+    priority
+    alt="{{ car!.make }} {{ car!.model }}"
+    class="car-img"
+  >
+  <h2>{{ car!.year }} {{ car!.make }} {{ car!.model }}</h2>
+  <p>Horsepower: {{ car!.horsepower }}</p>
+  <p>Top Speed: {{ car!.topSpeed }} mph</p>
+  <p *ngIf="car!.isClassic">Classic Muscle Car</p>
 </div>

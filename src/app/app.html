@@ -6,16 +6,13 @@
     <a routerLink="/modify" routerLinkActive="active-link">Modify List</a>
   </nav>
 
-  <router-outlet></router-outlet>
-
   <section *ngIf="featured">
     <h2>Featured Car</h2>
     <app-car-list-item [car]="featured"></app-car-list-item>
   </section>
 
-  <section>
-    <h2>All Cars</h2>
-    <app-car-list></app-car-list>
-  </section>
+  <h2>All Cars</h2>
+  <router-outlet></router-outlet>
+
 </div>
 

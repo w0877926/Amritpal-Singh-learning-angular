@@ -4,12 +4,12 @@ import { NgIf } from '@angular/common';
 import { CarListComponent } from './car-list/car-list.component';
 import { CarListItemComponent } from './car-list-item/car-list-item.component';
 import { MuscleCarService } from './services/muscle-car.service';
-import {RouterOutlet} from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgIf, CarListComponent, CarListItemComponent, RouterOutlet],
+  imports: [NgIf, CarListComponent, CarListItemComponent, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })

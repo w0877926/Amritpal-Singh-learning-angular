@@ -9,15 +9,3 @@ export const appRoutes: Routes = [
   { path: 'modify', component: ModifyListItemComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
-
-
-
-
-
-
-
-
-
-
-
-
