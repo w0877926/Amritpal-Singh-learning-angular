@@ -1,0 +1,17 @@
+.car-actions {
+  margin: 10px 0;
+}
+
+button {
+  margin-right: 8px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff4444;
+}

@@ -7,5 +7,6 @@ export const appRoutes: Routes = [
   { path: '', component: CarListComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'modify', component: ModifyListItemComponent },
+  { path: 'modify/:id', component: ModifyListItemComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
