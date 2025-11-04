@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class CarListComponent implements OnInit {
   cars: MuscleCar[] = [];
+  errorMessage = '';
 
   constructor(
     private carService: MuscleCarService,
@@ -21,7 +22,20 @@ export class CarListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.carService.getCars().subscribe(cars => this.cars = cars);
+    this.loadCars();
+  }
+
+  loadCars() {
+    this.carService.getCars().subscribe({
+      next: cars => {
+        this.cars = cars || [];
+        this.errorMessage = '';
+      },
+      error: err => {
+        this.errorMessage = 'Failed to load muscle cars.';
+        console.error('loadCars error', err);
+      }
+    });
   }
 
   onEdit(id: number) {
@@ -29,8 +43,15 @@ export class CarListComponent implements OnInit {
   }
 
   onDelete(id: number) {
-    this.carService.deleteCar(id).subscribe(() => {
-      this.cars = this.cars.filter(car => car.id !== id);
+    this.carService.deleteCar(id).subscribe({
+      next: () => {
+        this.cars = this.cars.filter(car => car.id !== id);
+        this.errorMessage = '';
+      },
+      error: err => {
+        this.errorMessage = 'Delete failed.';
+        console.error(err);
+      }
     });
   }
 }

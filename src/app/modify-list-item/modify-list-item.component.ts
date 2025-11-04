@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MuscleCarService } from '../services/muscle-car.service';
 import { MuscleCar } from '../models/muscle-car';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-modify-list-item',
@@ -13,8 +13,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./modify-list-item.component.css']
 })
 export class ModifyListItemComponent implements OnInit {
+
   carForm!: FormGroup;
   editingCarId: number | null = null;
+  errorMessage: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -23,14 +25,15 @@ export class ModifyListItemComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+
     this.carForm = this.fb.group({
-      id: [null],
-      make: ['', Validators.required],
-      model: ['', Validators.required],
-      year: ['', Validators.required],
-      horsepower: ['', Validators.required],
-      topSpeed: ['', Validators.required],
+      id: [''],
+      make: [''],
+      model: [''],
+      year: [''],
+      horsepower: [''],
+      topSpeed: [''],
       isClassic: [false],
       image: ['']
     });
@@ -38,37 +41,58 @@ export class ModifyListItemComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
       this.editingCarId = id;
-      this.carService.getCarById(id).subscribe(car => {
-        if (car) this.carForm.patchValue(car);
+      this.carService.getCarById(id).subscribe({
+        next: (car: MuscleCar | undefined) => {
+          if (car) this.carForm.patchValue(car);
+        },
+        error: (err) => console.error('Error fetching car:', err)
       });
     }
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.carForm.valid) {
-      const formValue: MuscleCar = this.carForm.value;
+      const formValue = this.carForm.value as MuscleCar;
 
       if (this.editingCarId !== null) {
-        this.carService.updateCar(formValue).subscribe(() => {
-          alert('Car updated successfully!');
-          this.router.navigate(['/']);
+        formValue.id = this.editingCarId;
+        this.carService.updateCar(formValue).subscribe({
+          next: () => {
+            alert('Car updated successfully!');
+            this.router.navigate(['/']);
+          },
+          error: (err) => console.error('Error updating car:', err)
         });
       } else {
-        this.carService.getCars().subscribe(cars => {
-          formValue.id = cars.length > 0 ? cars[cars.length - 1].id + 1 : 1;
-          this.carService.createCar(formValue).subscribe(() => {
-            alert('New car added successfully!');
-            this.router.navigate(['/']);
-          });
+        this.carService.getCars().subscribe({
+          next: (cars: MuscleCar[]) => {
+            let maxId = 0;
+            for (let c of cars) {
+              if (c.id && c.id > maxId) {
+                maxId = c.id;
+              }
+            }
+            formValue.id = maxId + 1;
+
+            this.carService.createCar(formValue).subscribe({
+              next: () => {
+                alert('New car added successfully!');
+                this.router.navigate(['/']);
+              },
+              error: (err) => console.error('Error creating car:', err)
+            });
+          },
+          error: (err) => console.error('Error loading cars:', err)
         });
       }
+
 
       this.carForm.reset();
       this.editingCarId = null;
     }
   }
 
-  onReset() {
+  onReset(): void {
     this.carForm.reset();
     this.editingCarId = null;
   }

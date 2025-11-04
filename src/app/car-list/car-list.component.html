@@ -1,8 +1,7 @@
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
 <div *ngFor="let car of cars; let i = index">
-  <app-car-list-item
-    [car]="car"
-    [isEven]="i % 2 === 0">
-  </app-car-list-item>
+  <app-car-list-item [car]="car" [isEven]="i % 2 === 0"></app-car-list-item>
 
   <div class="car-actions">
     <button (click)="onEdit(car.id)">Edit</button>
