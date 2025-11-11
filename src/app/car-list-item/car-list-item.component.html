@@ -8,8 +8,8 @@
     alt="{{ car!.make }} {{ car!.model }}"
     class="car-img"
   >
-    <h2>{{ car?.year }} {{ car?.make | uppercase }} {{ car?.model }}</h2>
-    <p>Horsepower: {{ car?.horsepower | number }}</p>
+  <h2>{{ car! | carTitle }}</h2>
+  <p>Horsepower: {{ car?.horsepower | number }}</p>
     <p>Top Speed: {{ car?.topSpeed | number:'1.0-0' }} mph</p>
 
     <p>Added to Garage: {{ car?.addedDate | date:'fullDate' }}</p>
