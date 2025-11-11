@@ -7,4 +7,6 @@ export interface MuscleCar {
   topSpeed: number;
   isClassic?: boolean;
   image?: string;
+  addedDate?: Date;
+  price?: number;
 }

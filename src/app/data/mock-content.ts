@@ -9,7 +9,9 @@ export const MUSCLE_CARS: MuscleCar[] = [
     horsepower: 375,
     topSpeed: 118,
     isClassic: true,
-    image: 'https://images.pexels.com/photos/57409/ford-mustang-stallion-red-57409.jpeg'
+    image: 'https://images.pexels.com/photos/57409/ford-mustang-stallion-red-57409.jpeg',
+    addedDate: new Date('2025-11-11'),
+    price: 85000
   },
   {
     id: 2,
@@ -19,7 +21,9 @@ export const MUSCLE_CARS: MuscleCar[] = [
     horsepower: 290,
     topSpeed: 120,
     isClassic: true,
-    image: 'https://images.pexels.com/photos/24181694/pexels-photo-24181694.jpeg'
+    image: 'https://images.pexels.com/photos/24181694/pexels-photo-24181694.jpeg',
+    addedDate: new Date('2025-11-11'),
+    price: 75000
   },
   {
     id: 3,
@@ -29,7 +33,9 @@ export const MUSCLE_CARS: MuscleCar[] = [
     horsepower: 375,
     topSpeed: 127,
     isClassic: true,
-    image: 'https://images.pexels.com/photos/16041054/pexels-photo-16041054.jpeg'
+    image: 'https://images.pexels.com/photos/16041054/pexels-photo-16041054.jpeg',
+    addedDate: new Date('2025-11-11'),
+    price: 90000
   },
   {
     id: 4,
@@ -39,6 +45,8 @@ export const MUSCLE_CARS: MuscleCar[] = [
     horsepower: 370,
     topSpeed: 115,
     isClassic: true,
-    image: 'https://images.pexels.com/photos/19202928/pexels-photo-19202928.jpeg'
+    image: 'https://images.pexels.com/photos/19202928/pexels-photo-19202928.jpeg',
+    addedDate: new Date('2025-11-11'),
+    price: 95000
   }
 ];

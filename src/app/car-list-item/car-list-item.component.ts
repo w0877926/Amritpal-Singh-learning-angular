@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MuscleCar } from '../models/muscle-car';
-import {NgClass, NgIf, NgOptimizedImage} from '@angular/common';
+import {CurrencyPipe, DatePipe, DecimalPipe, NgClass, NgIf, NgOptimizedImage, UpperCasePipe} from '@angular/common';
 
 @Component({
   selector: 'app-car-list-item',
@@ -9,7 +9,11 @@ import {NgClass, NgIf, NgOptimizedImage} from '@angular/common';
   imports: [
     NgClass,
     NgIf,
-    NgOptimizedImage
+    NgOptimizedImage,
+    UpperCasePipe,
+    DecimalPipe,
+    DatePipe,
+    CurrencyPipe
   ],
   styleUrls: ['./car-list-item.component.css']
 })

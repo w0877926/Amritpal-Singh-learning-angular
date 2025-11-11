@@ -35,7 +35,9 @@ export class ModifyListItemComponent implements OnInit {
       horsepower: [''],
       topSpeed: [''],
       isClassic: [false],
-      image: ['']
+      image: [''],
+      addedDate: [''],
+      price: ['']
     });
 
     const id = Number(this.route.snapshot.paramMap.get('id'));

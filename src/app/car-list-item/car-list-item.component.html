@@ -8,8 +8,14 @@
     alt="{{ car!.make }} {{ car!.model }}"
     class="car-img"
   >
-  <h2>{{ car!.year }} {{ car!.make }} {{ car!.model }}</h2>
-  <p>Horsepower: {{ car!.horsepower }}</p>
-  <p>Top Speed: {{ car!.topSpeed }} mph</p>
-  <p *ngIf="car!.isClassic">Classic Muscle Car</p>
-</div>
+    <h2>{{ car?.year }} {{ car?.make | uppercase }} {{ car?.model }}</h2>
+    <p>Horsepower: {{ car?.horsepower | number }}</p>
+    <p>Top Speed: {{ car?.topSpeed | number:'1.0-0' }} mph</p>
+
+    <p>Added to Garage: {{ car?.addedDate | date:'fullDate' }}</p>
+
+    <p>Estimated Value: {{ car?.price | currency:'USD' }}</p>
+
+    <p *ngIf="car?.isClassic">Type: {{ 'classic muscle car' | uppercase }}</p>
+  </div>
+
