@@ -4,11 +4,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MuscleCarService } from '../services/muscle-car.service';
 import { MuscleCar } from '../models/muscle-car';
+import {HighlightOnFocusDirective} from '../directives/highlight-on-focus.directive';
+import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, HighlightOnFocusDirective, HoverHighlightDirective],
   templateUrl: './modify-list-item.component.html',
   styleUrls: ['./modify-list-item.component.css']
 })

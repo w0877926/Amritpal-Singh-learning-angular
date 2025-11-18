@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CarListItemComponent } from '../car-list-item/car-list-item.component';
 import { MuscleCar } from '../models/muscle-car';
 import { MuscleCarService } from '../services/muscle-car.service';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
+import {HighlightOnFocusDirective} from '../directives/highlight-on-focus.directive';
 
 @Component({
   selector: 'app-car-list',
   standalone: true,
-  imports: [CommonModule, CarListItemComponent],
+  imports: [CommonModule, CarListItemComponent, HoverHighlightDirective, RouterLink, HighlightOnFocusDirective],
   templateUrl: './car-list.component.html',
   styleUrls: ['./car-list.component.css']
 })

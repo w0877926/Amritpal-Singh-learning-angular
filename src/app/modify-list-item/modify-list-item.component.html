@@ -2,35 +2,35 @@
 
 <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
   <label>Make:</label>
-  <input formControlName="make" type="text">
+  <input formControlName="make" type="text" highlightOnFocus="orange" hoverHighlight="lightblue">
 
   <label>Model:</label>
-  <input formControlName="model" type="text">
+  <input formControlName="model" type="text" highlightOnFocus="orange" hoverHighlight="lightblue">
 
   <label>Year:</label>
-  <input formControlName="year" type="number">
+  <input formControlName="year" type="number" highlightOnFocus="orange" hoverHighlight="lightblue">
 
   <label>Horsepower:</label>
-  <input formControlName="horsepower" type="number">
+  <input formControlName="horsepower" type="number" highlightOnFocus="orange" hoverHighlight="lightblue">
 
   <label>Top Speed (mph):</label>
-  <input formControlName="topSpeed" type="number">
+  <input formControlName="topSpeed" type="number" highlightOnFocus="orange" hoverHighlight="lightblue">
 
   <label>Estimated Value</label>
-  <input formControlName="price" type="number">
+  <input formControlName="price" type="number" highlightOnFocus="orange" hoverHighlight="lightblue">
 
   <label>Added to Garage:</label>
-  <input formControlName="addedDate" type="date">
+  <input formControlName="addedDate" type="date" highlightOnFocus="orange" hoverHighlight="lightblue">
 
   <label>
     <input formControlName="isClassic" type="checkbox"> Classic?
   </label>
 
   <label>Image URL:</label>
-  <input formControlName="image" type="text">
+  <input formControlName="image" type="text" highlightOnFocus="orange" hoverHighlight="lightblue">
 
-  <button type="submit">{{ editingCarId ? 'Update Car' : 'Add Car' }}</button>
-  <button type="button" (click)="onReset()">Reset</button>
+  <button type="submit" hoverHighlight="lightblue">{{ editingCarId ? 'Update Car' : 'Add Car' }}</button>
+  <button type="button" (click)="onReset()" hoverHighlight="lightblue">Reset</button>
 </form>
 
 <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
