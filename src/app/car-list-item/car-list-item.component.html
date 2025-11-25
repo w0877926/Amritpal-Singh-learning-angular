@@ -1,21 +1,19 @@
-<div class="car-item" [ngClass]="{ even: isEven, odd: !isEven }">
-  <img
-    *ngIf="car?.image"
-    ngSrc="{{ car!.image }}"
-    width="300"
-    height="200"
-    priority
-    alt="{{ car!.make }} {{ car!.model }}"
-    class="car-img"
-  >
-  <h2>{{ car! | carTitle }}</h2>
-  <p>Horsepower: {{ car?.horsepower | number }}</p>
-    <p>Top Speed: {{ car?.topSpeed | number:'1.0-0' }} mph</p>
+<mat-card class="featured-card">
 
-    <p>Added to Garage: {{ car?.addedDate | date:'fullDate' }}</p>
+  <mat-card-header>
+    <mat-card-title>{{ car?.make }} {{ car?.model }}</mat-card-title>
+    <mat-card-subtitle *ngIf="car?.isClassic">
+      CLASSIC MUSCLE CAR
+    </mat-card-subtitle>
+  </mat-card-header>
 
-    <p>Estimated Value: {{ car?.price | currency:'USD' }}</p>
+  <img mat-card-image [src]="car?.image" alt="{{ car?.make }} {{ car?.model }}">
 
-    <p *ngIf="car?.isClassic">Type: {{ 'classic muscle car' | uppercase }}</p>
-  </div>
+  <mat-card-content>
+    <p><strong>Horsepower:</strong> {{ car?.horsepower }}</p>
+    <p><strong>Top Speed:</strong> {{ car?.topSpeed }} mph</p>
+    <p><strong>Added:</strong> {{ car?.addedDate | date }}</p>
+    <p><strong>Value:</strong> {{ car?.price | currency:'USD' }}</p>
+  </mat-card-content>
 
+</mat-card>

@@ -1,12 +1,24 @@
 <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 
-<div *ngFor="let car of cars; let i = index">
-  <app-car-list-item [car]="car" [isEven]="i % 2 === 0" ></app-car-list-item>
+<div class="car-list">
+  <mat-card
+    class="car-card"
+    *ngFor="let car of cars; let i = index"
+    appearance="outlined">
 
+    <app-car-list-item [car]="car"></app-car-list-item>
 
-  <div class="car-actions">
-    <button (click)="onEdit(car.id)" highlightOnFocus="orange" hoverHighlight="blue">Edit</button>
-    <button (click)="onDelete(car.id)" highlightOnFocus="orange" hoverHighlight="blue">Delete</button>
-  </div>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" hoverHighlight (click)="onEdit(car.id)">
+        <mat-icon>edit</mat-icon>
+        Edit
+      </button>
+
+      <button mat-raised-button color="warn" hoverHighlight (click)="onDelete(car.id)">
+        <mat-icon>delete</mat-icon>
+        Delete
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
 </div>
-

@@ -1,24 +1,9 @@
-.car-item {
-  border: 2px solid #333;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  text-align: center;
+.featured-card {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.car-img {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  margin: 0 auto 10px;
-  border-radius: 6px;
-}
-
-.even {
-  background-color: #ffe4e1;
-}
-
-.odd {
-  background-color: #e0ffff;
+mat-card img {
+  max-height: 220px ;
+  object-fit: cover;
 }

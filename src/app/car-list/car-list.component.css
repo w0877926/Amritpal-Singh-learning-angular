@@ -1,13 +1,12 @@
-.car-actions {
-  margin: 10px 0;
+.car-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-button {
-  margin-right: 8px;
-  background-color: #222;
-  color: #fff;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
+.car-card {
+  padding: 16px;
+}
+mat-card button {
+  pointer-events: auto;
 }

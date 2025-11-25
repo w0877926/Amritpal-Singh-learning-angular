@@ -1,37 +1,63 @@
-<h2>{{ editingCarId ? 'Edit Muscle Car' : 'Add a New Muscle Car' }}</h2>
+<h2>{{ editingCarId ? "Edit Muscle Car" : "Add a New Muscle Car" }}</h2>
 
 <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
-  <label>Make:</label>
-  <input formControlName="make" type="text" highlightOnFocus="orange" hoverHighlight="lightblue">
 
-  <label>Model:</label>
-  <input formControlName="model" type="text" highlightOnFocus="orange" hoverHighlight="lightblue">
+  <mat-form-field appearance="outline">
+    <mat-label>Make</mat-label>
+    <input matInput formControlName="make" matTooltip="Enter the brand">
+  </mat-form-field>
 
-  <label>Year:</label>
-  <input formControlName="year" type="number" highlightOnFocus="orange" hoverHighlight="lightblue">
+  <mat-form-field appearance="outline">
+    <mat-label>Model</mat-label>
+    <input matInput formControlName="model" matTooltip="Enter the model">
+  </mat-form-field>
 
-  <label>Horsepower:</label>
-  <input formControlName="horsepower" type="number" highlightOnFocus="orange" hoverHighlight="lightblue">
+  <mat-form-field appearance="outline">
+    <mat-label>Year</mat-label>
+    <input matInput type="number" formControlName="year" matTooltip="Enter a valid year">
+  </mat-form-field>
 
-  <label>Top Speed (mph):</label>
-  <input formControlName="topSpeed" type="number" highlightOnFocus="orange" hoverHighlight="lightblue">
+  <mat-form-field appearance="outline">
+    <mat-label>Horsepower</mat-label>
+    <input matInput type="number" formControlName="horsepower" matTooltip="Enter horsepower">
+  </mat-form-field>
 
-  <label>Estimated Value</label>
-  <input formControlName="price" type="number" highlightOnFocus="orange" hoverHighlight="lightblue">
+  <mat-form-field appearance="outline">
+    <mat-label>Top Speed</mat-label>
+    <input matInput type="number" formControlName="topSpeed" matTooltip="Enter top speed">
+  </mat-form-field>
 
-  <label>Added to Garage:</label>
-  <input formControlName="addedDate" type="date" highlightOnFocus="orange" hoverHighlight="lightblue">
+  <mat-form-field appearance="outline">
+    <mat-label>Estimated Value</mat-label>
+    <input matInput type="number" formControlName="price" matTooltip="Enter estimated market value">
+  </mat-form-field>
 
-  <label>
-    <input formControlName="isClassic" type="checkbox"> Classic?
-  </label>
+  <mat-form-field appearance="outline">
+    <mat-label>Added Date</mat-label>
+    <input matInput type="date" formControlName="addedDate" matTooltip="Date car was added">
+  </mat-form-field>
 
-  <label>Image URL:</label>
-  <input formControlName="image" type="text" highlightOnFocus="orange" hoverHighlight="lightblue">
+  <mat-checkbox formControlName="isClassic" matTooltip="Check if this is a classic muscle car">
+    Classic?
+  </mat-checkbox>
 
-  <button type="submit" hoverHighlight="lightblue">{{ editingCarId ? 'Update Car' : 'Add Car' }}</button>
-  <button type="button" (click)="onReset()" hoverHighlight="lightblue">Reset</button>
+  <mat-form-field appearance="outline">
+    <mat-label>Image URL</mat-label>
+    <input matInput formControlName="image" matTooltip="Enter picture URL">
+  </mat-form-field>
+
+  <div class="form-buttons">
+    <button mat-raised-button color="primary" type="submit">
+      {{ editingCarId ? "Update Car" : "Add Car" }}
+    </button>
+
+    <button mat-stroked-button type="button" color="accent" (click)="onReset()">
+      Reset
+    </button>
+  </div>
+
 </form>
 
-<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>

@@ -4,13 +4,26 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MuscleCarService } from '../services/muscle-car.service';
 import { MuscleCar } from '../models/muscle-car';
-import {HighlightOnFocusDirective} from '../directives/highlight-on-focus.directive';
-import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HighlightOnFocusDirective, HoverHighlightDirective],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatTooltipModule,
+    MatCardModule
+  ],
   templateUrl: './modify-list-item.component.html',
   styleUrls: ['./modify-list-item.component.css']
 })
@@ -89,7 +102,6 @@ export class ModifyListItemComponent implements OnInit {
           error: (err) => console.error('Error loading cars:', err)
         });
       }
-
 
       this.carForm.reset();
       this.editingCarId = null;
