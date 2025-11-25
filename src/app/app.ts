@@ -1,15 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { MuscleCar } from './models/muscle-car';
-import { NgIf } from '@angular/common';
-import { CarListComponent } from './car-list/car-list.component';
-import { CarListItemComponent } from './car-list-item/car-list-item.component';
+import { NgIf, CurrencyPipe, DatePipe } from '@angular/common';
 import { MuscleCarService } from './services/muscle-car.service';
-import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgIf, CarListComponent, CarListItemComponent, RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [
+    NgIf,
+    CurrencyPipe,
+    DatePipe,
+    RouterOutlet,
+    RouterLink,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
+  ],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
